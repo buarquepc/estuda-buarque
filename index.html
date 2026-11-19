@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#0f0f1a">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Estuda Buarque v2</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icon.png">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; height: 100%; overflow: hidden; background-color: #0f0f1a; }
-    iframe { width: 100%; height: 100%; border: none; display: block; }
-  </style>
+<meta charset="UTF-8">
+<!-- Estuda Buarque v2 · casca (Cirurgia 9b).
+     O app de verdade continua no Google Apps Script: aqui ele só abre numa moldura de tela cheia, para o celular
+     instalar como app (com o ícone, sem a barra de endereço e sem a faixa do Google).
+     Quem consegue abrir o app é decidido no Apps Script: Implantar › Gerenciar implantações › Quem pode acessar
+     (desde a 9b: Somente eu). Se um dia o link /exec mudar, troque só o endereço do src, logo abaixo. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f0f1a">
+<title>Estuda Buarque v2</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0f0f1a; }
+  #abrindo { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px;
+             text-align: center; color: #818cf8; font: 17px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  iframe { position: relative; z-index: 1; display: block; width: 100%; height: 100%; border: 0; }
+</style>
 </head>
 <body>
-  <iframe 
-    src="https://google.com" 
-    allow="camera; microphone; geolocation; clipboard-read; clipboard-write"
-    allowfullscreen>
-  </iframe>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js');
-      });
-    }
-  </script>
+<div id="abrindo">☁️ Abrindo o Estuda Buarque…</div>
+<iframe src="https://script.google.com/macros/s/AKfycbyEQs2OCEkpN09AvElSGSbr6fC8owvVkqkLLfoRhzMJWNqCLFHDoal3xBg0Wq0KmXxT6Q/exec"
+        title="Estuda Buarque v2" allow="autoplay; microphone; clipboard-read; clipboard-write; fullscreen"></iframe>
+<script>
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
+</script>
 </body>
 </html>
